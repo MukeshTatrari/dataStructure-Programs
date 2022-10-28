@@ -1,12 +1,18 @@
 class Solution {
     public boolean isPalindrome(int x) {
-        String s = String.valueOf(x);
-        StringBuilder st = new StringBuilder(String.valueOf(x));
-        String p = st.reverse().toString();
-        if(s.equalsIgnoreCase(p)){
+        if(x<0){
+            return false;
+        }
+        int reverse=0;
+        int original=x;
+        while(x>0){
+            int p = x % 10;
+			reverse = reverse * 10 + p;
+			x = x / 10;
+        }
+        if(original==reverse){
             return true;
-        }else
-        {
+        }else{
             return false;
         }
     }
