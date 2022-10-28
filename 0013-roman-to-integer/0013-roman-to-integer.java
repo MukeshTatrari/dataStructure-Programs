@@ -1,23 +1,13 @@
 class Solution {
 
     public int romanToInt(String s) {
-        Map<String, Integer> map = new HashMap<>();
-        map.put("I", 1);
-        map.put("V", 5);
-        map.put("X", 10);
-        map.put("L", 50);
-        map.put("C", 100);
-        map.put("D", 500);
-        map.put("M", 1000);
-
         int sum = 0;
 
         char[] chars = s.toCharArray();
         for (int i = 0; i < chars.length; i++) {
-            int x = map.get(String.valueOf(chars[i]));
+            int x = value(chars[i]);
             if (i + 1 < s.length()) {
-                String n = String.valueOf(s.charAt(i + 1));
-                int y = map.get(n);
+                int y = value(s.charAt(i + 1));
                 if (x < y) {
                     sum = sum + (y - x);
                     i++;
@@ -30,5 +20,16 @@ class Solution {
         }
 
         return sum;
+    }
+
+    public int value(Character r) {
+        if (r == 'I') return 1;
+        if (r == 'V') return 5;
+        if (r == 'X') return 10;
+        if (r == 'L') return 50;
+        if (r == 'C') return 100;
+        if (r == 'D') return 500;
+        if (r == 'M') return 1000;
+        return 0;
     }
 }
