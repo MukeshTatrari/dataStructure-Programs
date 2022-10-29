@@ -1,4 +1,5 @@
 class Solution {
+
     public int maxProfit(int[] prices) {
         int maxProfit = 0;
 		int minPrice = prices[0];
@@ -7,6 +8,5 @@ class Solution {
             maxProfit = Math.max(maxProfit, prices[i] - minPrice);
 		}
         return maxProfit;
-        
     }
 }
