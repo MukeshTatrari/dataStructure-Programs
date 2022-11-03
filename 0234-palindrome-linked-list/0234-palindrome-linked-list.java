@@ -18,7 +18,7 @@ class Solution {
             temp = temp.next;
         }
         while (head != null) {
-            if (head.val != (int) stack.pop()) {
+            if (head.val != stack.pop()) {
                 return false;
             }
             head = head.next;
