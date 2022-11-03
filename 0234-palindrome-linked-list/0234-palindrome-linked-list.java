@@ -11,18 +11,18 @@
 class Solution {
 
     public boolean isPalindrome(ListNode head) {
-        StringBuilder st = new StringBuilder();
+        Stack<Integer> stack = new Stack<>();
+        ListNode temp = head;
+        while (temp != null) {
+            stack.push(temp.val);
+            temp = temp.next;
+        }
         while (head != null) {
-            st.append(head.val);
+            if (head.val != (int) stack.pop()) {
+                return false;
+            }
             head = head.next;
         }
-
-        String p = st.toString();
-        String rev = st.reverse().toString();
-        if (p.equals(rev)) {
-            return true;
-        } else {
-            return false;
-        }
+        return true;
     }
 }
