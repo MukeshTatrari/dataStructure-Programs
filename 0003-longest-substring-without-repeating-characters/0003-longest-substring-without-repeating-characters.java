@@ -8,12 +8,12 @@ class Solution {
         int maxLength = 0;
         for (int i = 0; i < s.length(); i++) {
             x = String.valueOf(s.charAt(i));
-            if (!p.contains(x)) {
-                p += x;
-            } else {
-                p = p.substring(p.lastIndexOf(x) + 1) + x;
+            if(!p.contains(x)){
+                p = p+x;
+            }else{
+                p = p.substring(p.lastIndexOf(x)+1) +x;
             }
-            if (maxLength < p.length()) {
+            if(maxLength<p.length()){
                 maxLength = p.length();
             }
         }
