@@ -14,7 +14,7 @@ class Solution {
         } else {
             int arr[] = new int[2];
             arr[0] = ls.get(0);
-            arr[1] = ls.get(ls.size()-1);
+            arr[1] = ls.get(ls.size() - 1);
             return arr;
         }
     }
