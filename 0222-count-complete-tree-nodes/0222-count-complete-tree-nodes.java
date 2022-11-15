@@ -14,20 +14,14 @@
  * }
  */
 class Solution {
-    int count = 1;
-
+    int count =0;
     public int countNodes(TreeNode root) {
-        if (root == null) {
+        if(root==null){
             return 0;
         }
-        if (root.left != null) {
-            count++;
-        }
+       count++;
         countNodes(root.left);
-        if (root.right != null) {
-            count++;
-        }
         countNodes(root.right);
-        return count;
+        return count ;
     }
 }
