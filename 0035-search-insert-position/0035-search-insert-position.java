@@ -7,8 +7,10 @@ class Solution {
             if (nums[i] == target) {
                 value = i;
                 break;
-            } else if (nums[i] < target) {
-                data = i + 1;
+            } else {
+                if (nums[i] < target) {
+                    data = i + 1;
+                }
             }
         }
         if (value != 0) {
