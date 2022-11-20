@@ -13,7 +13,7 @@ class Solution {
             arr[j] = 0;
             j++;
         }
-        for(int i=0;i<nums.length;i++){
+        for (int i = 0; i < nums.length; i++) {
             nums[i] = arr[i];
         }
     }
