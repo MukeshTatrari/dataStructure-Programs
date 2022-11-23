@@ -3,10 +3,17 @@ import java.util.Arrays;
 class Solution {
 
     public boolean isAnagram(String s, String t) {
-        char[] sArr = s.toCharArray();
-        char[] tArr = t.toCharArray();
-        Arrays.sort(sArr);
-        Arrays.sort(tArr);
-        return (Arrays.equals(sArr, tArr));
+        if (s.length() != t.length()) {
+            return false;
+        }
+        int count[] = new int[256];
+        for (int i = 0; i < s.length(); i++) {
+            count[s.charAt(i)]++;
+            count[t.charAt(i)]--;
+        }
+        for (int i = 0; i < count.length; i++) {
+            if (count[i] != 0) return false;
+        }
+        return true;
     }
 }
