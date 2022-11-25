@@ -17,7 +17,9 @@ class Solution {
                 node = node.left;
             } else if (node.val < p.val && node.val < q.val) {
                 node = node.right;
-            } else return node;
+            } else {
+                return node;
+            }
         }
         return null;
     }
