@@ -5,20 +5,18 @@ class Solution {
         int n = word2.length();
         int i = 0, j = 0;
         StringBuilder s = new StringBuilder();
-        while (i < m && j < n) {
-            s.append(String.valueOf(word1.charAt(i)))
-                .append(String.valueOf(word2.charAt(j)));
-            i++;
-            j++;
+
+        while (i < m || j < n) {
+            if (i < m) {
+                s.append(word1.charAt(i));
+                i++;
+            }
+            if (j < n) {
+                s.append(word2.charAt(j));
+                j++;
+            }
         }
-        while (i < m) {
-            s.append(String.valueOf(word1.charAt(i)));
-            i++;
-        }
-        while (j < n) {
-            s.append(String.valueOf(word2.charAt(j)));
-            j++;
-        }
+
         return s.toString();
     }
 }
