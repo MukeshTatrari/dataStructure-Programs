@@ -24,7 +24,7 @@ class Node {
 class Solution {
 
     public Node connect(Node root) {
-        Node head= root;
+        Node head = root;
         while (root != null && root.left != null) {
             Node cur = root;
             while (cur != null) {
