@@ -24,17 +24,16 @@ class Node {
 class Solution {
 
     public Node connect(Node root) {
-        if (root == null) {
-            return null;
-        }
-        if (root.left != null) {
-            root.left.next = root.right;
-            if (root.next != null) {
-                root.right.next = root.next.left;
+        Node head= root;
+        while (root != null && root.left != null) {
+            Node cur = root;
+            while (cur != null) {
+                cur.left.next = cur.right;
+                cur.right.next = cur.next == null ? null : cur.next.left;
+                cur = cur.next;
             }
+            root = root.left;
         }
-        connect(root.left);
-        connect(root.right);
-        return root;
+        return head;
     }
 }
