@@ -5,23 +5,18 @@ import java.util.Map.Entry;
 class Solution {
 
     public int majorityElement(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for (int i = 0; i < nums.length; i++) {
-            if (!map.containsKey(nums[i])) {
-                map.put(nums[i], 1);
-            } else {
-                map.put(nums[i], map.get(nums[i]) + 1);
-            }
-        }
+        var occurrences = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(Integer::intValue, Collectors.counting()));
 
-        int max = 0;
-        int maxEntry = 0;
-        for (Entry<Integer, Integer> e : map.entrySet()) {
-            if (e.getValue() > max) {
-                maxEntry = e.getKey();
-                max = e.getValue();
+        final int[] data = new int[1];
+        final int[] key = new int[1];
+        occurrences.forEach(
+            (k, v) -> {
+                if (v > data[0]) {
+                    key[0] = k;
+                    data[0] = Math.toIntExact(v);
+                }
             }
-        }
-        return maxEntry;
+        );
+        return key[0];
     }
 }
